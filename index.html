@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bastion Network</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="landing">
+      <video autoplay muted loop playsinline>
+        <source src="https://www.googleapis.com/drive/v3/files/1a3o5LKNhVQL8WBP9sI0F-aOOqOghHQzH?alt=media&key=AIzaSyDaY8Oi1ZdjJWqLSGBqEPBSFjCGIcVNAFc" />
+      </video>
+      <div class="title">Bastion Network</div>
+    </header>
+
+    <nav id="navbar">
+      <div class="logo">Bastion Network</div>
+      <ul>
+        <li><a href="#join">Join Now!</a></li>
+        <li><a href="#servers">Gamemodes</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section id="join">
+      <h2>Join Bastion Network</h2>
+      <h3 onclick="navigator.clipboard.writeText('mc.bastionsg.rf.gd'); alert('Copied!');" onmouseover="this.style.cursor = 'pointer';" onmouseleave="this.style.cursor = 'default'" title="Click to copy">
+        mc.bastionsg.rf.gd
+      </h3>
+      <p>
+        Play now! Supports 1.8.9 and up.
+      </p>
+    </section>
+
+    <section id="servers">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <img src="image/bedwars.png" alt="BedWars" />
+          <h3>BedWars</h3>
+          <p>
+            A brief description of your game, highlighting key features or
+            style.
+          </p>
+        </div>
+        <div class="project-card">
+          <img src="image/csmp.png" alt="Classic SMP" />
+          <h3>Classic SMP</h3>
+          <p>
+            Another project description with key appeal points and a clear
+            visual identity.
+          </p>
+        </div>
+        <div class="project-card">
+          <img src="image/msmp.png" alt="Modern SMP" />
+          <h3>Modern SMP</h3>
+          <p>
+            This might be a prototype, early-access title, or upcoming release
+            teaser.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Our Team</h2>
+      <p>
+        The Bastion Team consists of Singaporean students who want to provide
+        quality Minecraft servers for the community.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Let's connect! Reach us at
+        <a href="mailto:bastiongamessg@gmail.com">bastiongamessg@gmail.com</a>.
+      </p>
+    </section>
+
+    <script>
+      const navbar = document.getElementById("navbar");
+      const header = document.querySelector("header.landing");
+      let lastScrollY = window.scrollY;
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        if (currentScroll > header.offsetHeight - 100) {
+          navbar.classList.add("show");
+        } else {
+          navbar.classList.remove("show");
+        }
+
+        // Fade in sections
+        document.querySelectorAll("section").forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            section.classList.add("visible");
+          }
+        });
+
+        // Inside your scroll event listener:
+        document.querySelectorAll(".project-card").forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            card.classList.add("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
